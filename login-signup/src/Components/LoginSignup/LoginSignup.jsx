@@ -8,6 +8,8 @@ import password_icon from '../Assets/password.png'
 const LoginSignup = () => {
     const [ action,setAction]=useState("Signup");
     
+    
+    
   return (
     <div className='container'>
     <div className='header'>
@@ -28,8 +30,12 @@ const LoginSignup = () => {
                 <img src={password_icon} alt="" />
                 <input type="password" placeholder='Password'/>
             </div>
-            <div class Name="forget-password">Lost passwod? click here</div>
-        </div>
+            {action === "Login" && (
+          <div className="forget-password" onClick={() => setAction("Forget-password")}>
+            Lost password? Click here
+          </div>
+            )}
+    </div>
         <div className='submit-container'>
         <div className={action === "Login" ? "submit gray":"submit"}onClick={()=>{setAction("Signup")}}>Signup</div>
         <div className={action==="Signup" ? "submit gray":"submit"}onClick={()=>{setAction("Login")}}>Login</div>
@@ -39,4 +45,4 @@ const LoginSignup = () => {
   );
 };
 
-export default LoginSignup;
+export default LoginSignup
